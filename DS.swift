@@ -144,45 +144,12 @@ extension DS.data{
     //: ||In load use key for de name of the value saved, in case of don't exis any data use a default value in error||
     //: ||===========================================================================================================||
     
-    //  FOR INTEGER
-    static func saveInt(value: Int, key: String){
+    static func save(value: AnyObject, key: String){
         data.setValue(value, forKey: key)
         data.synchronize()
     }
     
-    static func loadInt(key: String, error: Int) -> Int{return data.valueForKey(key) as? Int ?? error}
-    
-    //  FOR STRINGS
-    static func saveString(value: String, key: String){
-        data.setValue(value, forKey: key)
-        data.synchronize()
-    }
-    
-    static func loadString(key: String, error: String)->String{return data.valueForKey(key) as? String ?? error}
-    
-    //  FOR FLOAT
-    static func saveFloat(value: Double, key: String){
-        data.setValue(value, forKey: key)
-        data.synchronize()
-    }
-    
-    static func loadDouble(key: String, error: Double)->Double{return data.valueForKey(key) as? Double ?? error}
-    
-    //  FOR CHARACTER
-    static func saveCharacter(value: String, key: String){
-        data.setValue(value, forKey: key)
-        data.synchronize()
-    }
-    
-    static func loadCharacter(key: String, error: Character)->Character{return data.valueForKey(key) as? Character ?? error}
-    
-    //  FOR BOOL
-    static func saveBool(value: Bool, key: String){
-        data.setValue(value, forKey: key)
-        data.synchronize()
-    }
-    
-    static func loadBool(key: String, error: Bool)->Bool{return data.valueForKey(key) as? Bool ?? error}
+    static func load(key: String, error: AnyObject)->AnyObject{return data.valueForKey(key) ?? error}
     
 }
 extension DS.coreData{
